@@ -1,9 +1,9 @@
 # Responsive Drag
-A small (1.3k minified+gzipped!) JavaScript drag plugin for Zepto and jQuery, with an eye towards responsive designs and different input methods. It's fast and it's easy to use. Not tested at all on Internet Explorer, but works well on modern browsers and touch devices.
+A small (2k minified+gzipped!) JavaScript drag plugin for Zepto and jQuery, with an eye towards responsive designs and different input methods. It's fast and it's easy to use. Not tested at all on Internet Explorer, but works well on modern browsers and touch devices.
 
 ## Features
 * Works with both touch and mouse events
-* Tiny - just 1.3k gzipped
+* Tiny - just 2k gzipped
 * Works with both Zepto and jQuery
 * Extensible, exposes its core for modification
 * Works fine inside relative containers
