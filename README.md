@@ -11,7 +11,9 @@ A small (1.3k minified+gzipped!) JavaScript drag plugin for Zepto and jQuery, wi
 
 ## Demos
 [Standard slider]
+
 [Responsive slider]
+
 [Basic drop functionality]
 
 ## Installation
