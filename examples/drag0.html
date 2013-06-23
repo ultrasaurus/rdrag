@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>Horizontal and vertical slider example</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <style>
+    .wrapper {
+      width:600px;
+      margin:0 auto;
+      padding:40px;
+      position:relative;
+    }
+    .bg-horizontal {
+      border-radius:10px;
+      position:relative;
+      width:120px;
+      height:20px;
+      background-color:#bbb;
+    }
+    .bg-vertical {
+      border-radius:10px;
+      position:absolute;
+      width:20px;
+      height:120px;
+      background-color:#bbb;
+      z-index:2;
+    }
+    #drag0,
+    #drag1 {
+      position:relative;
+      width:20px;
+      height:20px;
+      border-radius:10px;
+      background-color:#666;
+      z-index:3;
+    }
+
+    #console {
+      position:absolute;
+      top:200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="bg-horizontal">
+      <div id="drag0"></div>
+    </div>
+
+    <div class="bg-vertical"></div>
+    <div id="drag1"></div>
+
+    <div id="console"></div>
+  </div>
+
+  <script src="../src/lib/zepto.js"></script>
+  <script src="../src/rdrag-1.0.js"></script>
+
+  <script>
+    // Set up delegate listener for divs below .wrapper
+    $('.wrapper').on('dragmove','div', function(e, delta, percent) {
+      $('#console').text('Bar is at ' + Math.max(Math.round(percent.top*100), Math.round(percent.left*100)) + '%');
+    });
+
+    // Set up horizontal scrollbar
+    $('#drag0').rDrag({
+      constraints: [0, 0, 0, 100],
+      threshold: 0
+    });
+
+    // Set up vertical scrollbar
+    $('#drag1').rDrag({
+      constraints: [0, 100, 0, 0],
+      threshold: 0
+    })    
+  </script>
+</body>
+</html>
