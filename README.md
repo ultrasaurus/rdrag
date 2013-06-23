@@ -65,12 +65,6 @@ $('.draggable').rDrag({ translate:false });
 If set to `true`, rDrag will use translate/translate3d for the positioning of the element. If set to `false`, rDrag will use absolute positioning instead.
 
 
-#### translate:
-```javascript
-$('.draggable').rDrag({ translate:false });
-```
-
-
 #### dragMethod:
 ```javascript
 $('.draggable').rDrag({ dragMethod:'touch' });
