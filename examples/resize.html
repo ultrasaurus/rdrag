@@ -1,0 +1,81 @@
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <style>
+    #target {
+      background-color: blue;
+      height: 300px;
+      width: 300px;
+      position: relative;
+      margin: 0px 100px;
+    }
+    .dragger {
+      background-color: #ffd;  
+      border: 1px solid black;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 80px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      user-select: none; 
+      cursor: pointer;
+    }
+  </style>
+
+  <style>
+    #dragger {
+      width:20px;
+      height:20px;
+      border-radius:10px;
+      background-color:#666;
+      z-index:3;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+    }
+
+    #console {
+      position:absolute;
+      top:200px;
+    }
+  </style>
+</head>
+<body>
+    <div id="target">
+      <div id="dragger"></div>
+    </div>
+
+  <script src="../src/lib/zepto.js"></script>
+  <script src="../src/rdrag-1.0.js"></script>
+
+  <script>
+
+    // Simple dragend callback
+    function doNothing() {};
+    $('#dragger')
+      .rDrag({'moveFunction':doNothing})
+      .on('dragstart', 'div', function(e, delta) {
+        var elem = $(e.target);
+        var resize_target = elem.parent();
+        elem.data('orig_width', resize_target.width());
+        elem.data('orig_height', resize_target.height());
+      })
+      .on('dragmove', 'div', function(e, delta) {
+          var elem = $(e.target);
+          var orig_width = elem.data('orig_width');
+          var orig_height = elem.data('orig_height');
+          
+          var new_width = orig_width + delta.left;
+          var new_height = orig_height + delta.top;
+          $('#target').width(new_width);
+          $('#target').height(new_height);
+      });
+  </script>
+</body>
+</html>
